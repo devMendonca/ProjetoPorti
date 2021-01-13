@@ -1,0 +1,22 @@
+{
+  "products": [
+    
+    {
+      "id": 2,
+      "name": "Notebook accer",
+      "price": 150
+    },
+    
+    {
+      "id": 3,
+      "name": "moto g8",
+      "price": 1000
+    },
+
+    {
+      "name": "Bolacha magic tost",
+      "price": "200",
+      "id": 5
+    }
+  ]
+}
