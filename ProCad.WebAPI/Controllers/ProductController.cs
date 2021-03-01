@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using ProCad.WebAPI.Data;
 
 
 namespace ProCad.WebAPI.Controllers
@@ -12,6 +13,17 @@ namespace ProCad.WebAPI.Controllers
     [Route("[controller]")]
     public class ProductController : ControllerBase
     {
+
+
+        public readonly ProContext _context;
+    public ProductController(ProContext context)
+    {
+        _context = context;
+    }
+
+
+
+
         private static readonly string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
@@ -28,21 +40,7 @@ namespace ProCad.WebAPI.Controllers
         public ActionResult<IEnumerable<Product>> Get()
         {
 
-            return new Product [] { 
-                    
-                    new Product (){
-                        id = 1,
-                        name = "Controle Remoto",
-                        price = 200
-                    },
-                    
-                    new Product (){
-                        id = 2,
-                        name = "Garrafa dgua",
-                        price = 150
-                    }
-
-            };
+           return _context.Products.ToList();
            
         }
     }
